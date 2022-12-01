@@ -1,24 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
+
+  let name: string;
+  let age: number | string;
+  let isStudent: boolean;
+  let hobbies: string[];
+  let role: [number, string];
+  // let printName: Function;
+  // let printName: unknown;
+  let smth: unknown;
+  let printName: (arg0: any) => void;//return undefined
+  let printSmth: (arg0: any) => never;//returns nothing
+
+  role = [5, 'rolestring'];
+
+  // function printName(name:string) {
+  //   console.log(name)
+  // }; printName('someName')
+
+
+
+
+
+  type Person = {
+    name: string;
+    age: number;
+    sex?:'string'
+  }
+  let person: Person = {
+    name: 'ben',
+    age: 25,
+  }
+  let people: Person[];
+
+
+
+
+
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }
