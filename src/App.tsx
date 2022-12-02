@@ -1,54 +1,21 @@
-import React from 'react';
 
-import './App.css';
-
-function App() {
-
-  let name: string;
-  let age: number | string;
-  let isStudent: boolean;
-  let hobbies: string[];
-  let role: [number, string];
-  // let printName: Function;
-  // let printName: unknown;
-  let smth: unknown;
-  let printName: (arg0: any) => void;//return undefined
-  let printSmth: (arg0: any) => never;//returns nothing
-
-  role = [5, 'rolestring'];
-
-  // function printName(name:string) {
-  //   console.log(name)
-  // }; printName('someName')
+import  Loader from './components/Loader';
+import  Error  from './components/Error';
+import { Product } from './components/Product';
+import { useProducts } from './hooks/hooks';
 
 
 
-
-
-  type Person = {
-    name: string;
-    age: number;
-    sex?:'string'
-  }
-  let person: Person = {
-    name: 'ben',
-    age: 25,
-  }
-  let people: Person[];
-
-
-
-
-
-
-
-
+const App = () => {
+const {loading,err,products} = useProducts()
 
   return (
-    <div className="App">
-
-    </div>
-  );
+    <div className='container mx-auto max-w-2xl pt-5'>
+      {loading&&<Loader/>}
+      {err && <Error err={err} />}
+      {products.map((item) => (<Product product={item} key={item.id} />))}
+  </div>
+)
 }
 
 export default App;

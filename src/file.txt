@@ -1,0 +1,67 @@
+  let name: string;
+  let age: number | string;
+  let isStudent: boolean;
+  let hobbies: string[];
+  let role: [number, string];
+  // let printName: Function;
+  // let printName: unknown;
+  let smth: unknown;
+  let printName: (arg0: any) => void;//return undefined
+  let printSmth: (arg0: any) => never;//returns nothing
+
+  role = [5, 'rolestring'];
+
+  // function printName(name:string) {
+  //   console.log(name)
+  // }; printName('someName')
+
+
+
+
+
+  // type Person = {
+  //   name: string;
+  //   age: number;
+  //   sex?:'string'
+  // }
+
+  interface Person{
+    name: string,
+    age:number
+}
+
+
+  let person: Person = {
+    name: 'ben',
+    age: 25,
+  }
+  let people: Person[];
+
+
+
+
+//extends type
+
+  type X = {
+    a: string,
+    b:number
+  }
+  type Y = X & {
+    c: string,
+    d:number
+  }
+  let y:Y = {
+    a: 'hi',
+    b: 56,
+    c: 'bye',
+    d:44
+        }
+//interface
+  interface first{
+    name: string,
+    age?:number
+  }
+  interface second extends Y{
+    occupation: string
+  }
+  
