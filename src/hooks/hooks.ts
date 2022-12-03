@@ -4,7 +4,11 @@ import { IProduct } from '../models';
 export function useProducts() {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [loading, setLoading] = useState(false);
-    const [err,setErr] = useState<string>()
+  const [err, setErr] = useState<string>()
+  function addProduct(product: IProduct){
+    setProducts(prev=>[...prev,product])
+  }
+
    async function fetchProducts() {
      setLoading(true);setErr('')
      await  axios.get<IProduct[]>('https://fakestoreapi.com/products?limit=7')
@@ -17,5 +21,5 @@ export function useProducts() {
   useEffect(() => { fetchProducts() }, []);
 
 
-  return{products,err,loading}
+  return{products,err,loading,addProduct}
 }
